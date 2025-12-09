@@ -16,18 +16,29 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Grid from '@mui/material/Grid';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 export default function PostList() {
-    const { data } = useContext(HomeContext);
+    const { data, setData } = useContext(HomeContext);
+
+    const deleteData = async(e,id) => {
+        e.preventDefault();
+
+        fetch(`/api/cafe/${id}`, {method:"DELETE"})
+            .then(() => fetch("/api/cafe"))
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data);
+            });
+    }
 
     return <>
     <div>Post</div>
     <Grid container spacing={2}>
-        {data.map((post)=>{ return <Grid size={4}>
-        <Card sx={{ maxWidth: 345 }}>
+        {data.map((post, index)=>{ return <Grid size={4} key={index}>
+        <Card sx={{ maxWidth: 345 }} >
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -36,7 +47,7 @@ export default function PostList() {
                 }
                 action={
                     <IconButton aria-label="settings">
-                        <MoreVertIcon />
+                        <DeleteIcon onClick={(e)=>deleteData(e,post.id)} />
                     </IconButton>
                 }
                 title={post.name}
