@@ -12,8 +12,8 @@ class DataEntity (
     var id: Long? = null,
     val name: String,
     val rate : Number,
-    val visitedDate: LocalDate,
-    val comment: String,
-    val picture: String,
-    val map : String,
+    val visitedDate: LocalDate?,
+    val comment: String?,
+    val picture: String?,
+    val map : String?,
 )

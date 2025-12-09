@@ -1,7 +1,15 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, createContext} from "react";
+import AddPostModal from "./AddPostModal";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
+
+export const HomeContext = createContext();
 
 export default function Home() {
     const [data, setData] = useState("")
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const value = { isOpenModal, setIsOpenModal, setData };
 
     useEffect(() => {
         async function getData(){
@@ -30,7 +38,10 @@ export default function Home() {
     return (<>
     <h1>Home</h1>
     <div>{JSON.stringify(data)}</div>
-    <button onClick={()=>addCafe()}>Add</button>
+    <button onClick={()=>setIsOpenModal(true)}>Add</button>
+    <HomeContext.Provider value={value}>
+        <AddPostModal />
+    </HomeContext.Provider>
     </>
     );
 }
