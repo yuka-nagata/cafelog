@@ -1,4 +1,11 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cafe
+    username: postgres
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
   application:
     name: cafeLog
 server:
