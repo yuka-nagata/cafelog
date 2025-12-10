@@ -1,0 +1,12 @@
+TRUNCATE TABLE data_entity RESTART IDENTITY CASCADE;
+
+INSERT INTO data_entity (name, rate, visited_date, comment, picture, map) VALUES ('Blue Bottle Coffee', 5, '2024-01-12', '落ち着いた雰囲気で居心地が良い。', 'https://cdn.pixabay.com/photo/2018/04/05/16/49/yoghurt-3293359_640.jpg', 'https://maps.example.com/1'),
+                                                                                 ( 'Starbucks', 4, '2024-02-03', 'いつも混んでいるが作業しやすい。', 'https://cdn.pixabay.com/photo/2016/03/26/23/23/starbucks-1281880_640.jpg', 'https://maps.example.com/2'),
+                                                                                 ( 'Tully''s Coffee', 4, '2024-01-20', '深煎りのコーヒーが好き。', 'https://cdn.pixabay.com/photo/2018/04/05/16/49/yoghurt-3293359_640.jpg', 'https://maps.example.com/3'),
+                                                                                 ( 'サンマルクカフェ', 2, '2024-03-01', 'チョコクロは安定の美味しさ。', 'https://cdn.pixabay.com/photo/2019/03/24/14/23/bread-4077812_640.jpg', 'https://maps.example.com/4'),
+                                                                                 ( 'ドトール', 2, '2024-01-25', '安くて気軽に入れる。', 'https://cdn.pixabay.com/photo/2017/05/15/17/43/cup-2315563_640.jpg', 'https://maps.example.com/5'),
+                                                                                 ( '猿田彦珈琲', 5, '2024-02-14', '香りがとても良いスペシャルティコーヒー。', 'https://cdn.pixabay.com/photo/2022/04/04/12/29/garden-7111101_640.jpg', 'https://maps.example.com/6'),
+                                                                                 ( 'Beck''s Coffee', 3, '2024-01-09', '駅ナカで便利。', 'https://cdn.pixabay.com/photo/2016/11/29/12/54/cafe-1869656_640.jpg', 'https://maps.example.com/7'),
+                                                                                 ( '上島珈琲店', 4, '2024-03-03', 'ミルク珈琲が濃厚で好き。', 'https://cdn.pixabay.com/photo/2014/02/04/18/08/cafe-gourmande-258201_640.jpg', 'https://maps.example.com/8'),
+                                                                                 ( 'Cafe de Crie', 3, '2024-02-11', '軽食の種類が多い。', 'https://cdn.pixabay.com/photo/2016/11/19/12/54/drink-1839134_640.jpg', 'https://maps.example.com/9'),
+                                                                                 ( '喫茶室ルノアール', 4, '2024-01-30', '昭和レトロ感がたまらない。', 'https://cdn.pixabay.com/photo/2016/04/12/11/19/coffee-1324126_640.jpg', 'https://maps.example.com/10');

@@ -18,6 +18,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import Grid from '@mui/material/Grid';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {Rating} from "@mui/material";
 
 
 export default function PostList() {
@@ -56,14 +57,15 @@ export default function PostList() {
             <CardMedia
                 component="img"
                 height="194"
-                src="https://cdn.pixabay.com/photo/2016/11/19/12/54/drink-1839134_1280.jpg"
+                src={post.picture}
                 alt="Paella dish"
             />
             <CardContent>
                 <Typography variant="comment" sx={{ color: 'text.secondary' }}>
-                    Comment: {post.comment}
+                    {post.comment}
                 </Typography>
             </CardContent>
+            <Rating value={post.rate} readOnly/>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
