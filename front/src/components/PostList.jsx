@@ -36,8 +36,7 @@ export default function PostList() {
     }
 
     return <>
-    <div>Post</div>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ paddingTop: 8 }}>
         {data.map((post, index)=>{ return <Grid size={4} key={index}>
         <Card sx={{ maxWidth: 345 }} >
             <CardHeader

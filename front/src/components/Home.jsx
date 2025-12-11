@@ -2,6 +2,7 @@ import {useEffect, useState, createContext} from "react";
 import AddPostModal from "./AddPostModal";
 import Modal from "react-modal";
 import PostList from "./PostList";
+import NavBar from "./NavBar.jsx";
 
 Modal.setAppElement("#root");
 
@@ -37,10 +38,8 @@ export default function Home() {
     }
 
     return (<>
-    <h1>Home</h1>
-    <div>{JSON.stringify(data)}</div>
-    <button onClick={()=>setIsOpenModal(true)}>Add</button>
     <HomeContext.Provider value={value}>
+     <NavBar/>
         <PostList />
         <AddPostModal />
     </HomeContext.Provider>
