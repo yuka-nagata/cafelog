@@ -2,6 +2,8 @@
 
 ### カフェ情報を共有できるアプリ
 
+<img src="./img/home.png" width="300px">
+<img src="./img/addPost.png" width="300px">
 
 ## 機能
 - 投稿表示
