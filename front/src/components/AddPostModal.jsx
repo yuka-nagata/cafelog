@@ -5,11 +5,15 @@ import Modal from "react-modal";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import {Rating} from "@mui/material";
+import * as React from 'react';
+import Typography from "@mui/material/Typography";
 
 
 const AddPostModal = () => {
     const { isOpenModal, setIsOpenModal, setData } =
         useContext(HomeContext);
+    const [rate, setRate] = React.useState(2);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -71,12 +75,14 @@ const AddPostModal = () => {
                         <TextField id="inputName" type="text" label="name" name="name"></TextField>
                     </div>
                     <div>
-                        <TextField
-                            id="inputRate"
-                            type="number"
-                            label="評価"
+                        <Typography component="legend">評価</Typography>
+                        <Rating
                             name="rate"
-                        ></TextField>
+                            value={rate}
+                            onChange={(event, newValue) => {
+                                setRate(newValue);
+                            }}
+                        />
                     </div>
                     <div>
                         <TextField

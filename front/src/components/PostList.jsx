@@ -18,6 +18,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import Grid from '@mui/material/Grid';
 import DeleteIcon from '@mui/icons-material/Delete';
+import LocationPinIcon from '@mui/icons-material/LocationPin';
 import {Rating} from "@mui/material";
 
 
@@ -70,7 +71,7 @@ export default function PostList() {
                     <FavoriteIcon />
                 </IconButton>
                 <IconButton aria-label="share">
-                    <ShareIcon />
+                    <LocationPinIcon />
                 </IconButton>
             </CardActions>
         </Card>
