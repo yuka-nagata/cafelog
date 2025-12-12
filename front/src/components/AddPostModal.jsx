@@ -20,6 +20,7 @@ const AddPostModal = () => {
         const form = e.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
+        formJson.favorite = false
 
         fetch("/api/cafe", {
             method: "POST",

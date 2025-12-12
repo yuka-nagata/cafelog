@@ -9,4 +9,5 @@ data class DataRequest(
     val comment: String,
     val picture: String,
     val map : String,
+    val favorite: Boolean
 )

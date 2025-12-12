@@ -3,6 +3,7 @@ package com.example.cafeLog
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -29,12 +30,23 @@ class DataController (
             comment=dataRequest.comment,
             picture=dataRequest.picture,
             map=dataRequest.map,
+            favorite=false
         )
         dataRepository.save(entity)
     }
 
-    @DeleteMapping("api/cafe/{id}")
+    @DeleteMapping("/api/cafe/{id}")
     fun deleteCafeById(@PathVariable id: Long) {
         dataRepository.deleteById(id)
+    }
+
+    @PatchMapping("/api/cafe/{id}")
+    fun patchFavoriteById(@PathVariable id: Long) {
+        val item = dataRepository.findById(id)
+            .orElseThrow { RuntimeException("Item not found id=$id") }
+        val toggledFavorite = !(item.favorite ?: false)
+
+        item.favorite = toggledFavorite
+        dataRepository.save(item)
     }
 }

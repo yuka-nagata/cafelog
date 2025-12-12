@@ -17,4 +17,5 @@ class DataEntity (
     val comment: String?,
     val picture: String?,
     val map : String?,
+    var favorite: Boolean? = false
 )

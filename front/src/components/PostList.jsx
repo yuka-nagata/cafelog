@@ -36,9 +36,20 @@ export default function PostList() {
             });
     }
 
+    const submitFavorite = async(e,id) => {
+        e.preventDefault();
+
+        fetch(`/api/cafe/${id}`, {method:"PATCH"})
+            .then(() => fetch("/api/cafe"))
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data);
+            });
+    }
+
     return <>
     <Grid container spacing={2} sx={{ paddingTop: 8 }}>
-        {data.map((post, index)=>{ return <Grid size={4} key={index}>
+        {data.sort((a,b)=>{return new Date(b.visitedDate)- new Date(a.visitedDate)}).map((post, index)=>{ return <Grid size={4} key={index}>
         <Card sx={{ maxWidth: 345 }} >
             <CardHeader
                 avatar={
@@ -68,7 +79,7 @@ export default function PostList() {
             <Rating value={post.rate} readOnly/>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
+                    <FavoriteIcon color={post.favorite ? "secondary" : "default"} onClick={(e)=>submitFavorite(e,post.id)}/>
                 </IconButton>
                 <IconButton aria-label="share">
                     <LocationPinIcon />
